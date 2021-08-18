@@ -1,0 +1,269 @@
+{% extends 'layout.html'%}
+{% block title %}Generar reporte{% endblock %}
+{% block body %}
+
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+        <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-6 col-lg-6">
+            <br><br><center><h4>Reporte General</h4></center><br>
+            <form class="mt-1" action="/reporte" method="POST">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" aria-describedby="name" value="{{ session['nombre'] }}"readonly><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Numero de identificacion</label>
+                    <input type="text" class="form-control" name="documento" aria-describedby="ID" value="{{ session['documento'] }}" readonly><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" aria-describedby="telefono" value="{{ session['telefono'] }}" readonly><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Correo electronico</label>
+                    <input type="email" class="form-control" name="email" aria-describedby="Correo" value="{{ session['email'] }}" readonly><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Poliza</label>
+                    <input type="text" class="form-control" name="poliza" aria-describedby="Poliza" placeholder=""><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Barrio</label>
+                    <select class="form-select" name="barrio" >
+                        <option value="20 de Julio">20 de Julio</option>
+                        <option value="7 de Abril">7 de Abril</option>
+                        <option value="7 de Agosto">7 de Agosto</option>
+                        <option value="Adela de Char">Adela de Char</option>
+                        <option value="Adelita de Char Etp. 2">Adelita de Char Etp. 2</option>
+                        <option value="Alfonso López">Alfonso López</option>
+                        <option value="Altamira">Altamira</option>
+                        <option value="Altos de Riomar">Altos de Riomar</option>
+                        <option value="Altos del Limón">Altos del Limón</option>
+                        <option value="Altos del Prado">Altos del Prado</option>
+                        <option value="América">América</option>
+                        <option value="Andalucía">Andalucía</option>
+                        <option value="Atlántico">Atlántico</option>
+                        <option value="Barlovento">Barlovento</option>
+                        <option value="Barranquillita">Barranquillita</option>
+                        <option value="Barrio Abajo">Barrio Abajo</option>
+                        <option value="Bella Arena">Bella Arena</option>
+                        <option value="Bellavista">Bellavista</option>
+                        <option value="Bernando Hoyos">Bernando Hoyos</option>
+                        <option value="Betania">Betania</option>
+                        <option value="Boston">Boston</option>
+                        <option value="Boyacá">Boyacá</option>
+                        <option value="Buena Esperanza">Buena Esperanza</option>
+                        <option value="Buenavista">Buenavista</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="California">California</option>
+                        <option value="Campo Alegre">Campo Alegre</option>
+                        <option value="Caribe Verde">Caribe Verde</option>
+                        <option value="Carlos Meisel">Carlos Meisel</option>
+                        <option value="Carrizal">Carrizal</option>
+                        <option value="Centro">Centro</option>
+                        <option value="Cevillar">Cevillar</option>
+                        <option value="Chiquinquirá">Chiquinquirá</option>
+                        <option value="Ciudad Jardín">Ciudad Jardín</option>
+                        <option value="Ciudad Modesto">Ciudad Modesto</option>
+                        <option value="Ciudadela 20 de Julio">Ciudadela 20 de Julio</option>
+                        <option value="Colina Campestre">Colina Campestre</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Cordialidad">Cordialidad</option>
+                        <option value="Corrigimiento Juan Mina">Corrigimiento Juan Mina</option>
+                        <option value="Cuchilla de Villate">Cuchilla de Villate</option>
+                        <option value="Eduardo Santos">Eduardo Santos</option>
+                        <option value="El Boliche">El Boliche</option>
+                        <option value="El Bosque">El Bosque</option>
+                        <option value="El Campito">El Campito</option>
+                        <option value="El Carmen">El Carmen</option>
+                        <option value="El Castillo I">El Castillo I</option>
+                        <option value="El Castillo">El Castillo</option>
+                        <option value="El Edén 2000">El Edén 2000</option>
+                        <option value="El Golf">El Golf</option>
+                        <option value="El Golfo">El Golfo</option>
+                        <option value="El Limón">El Limón</option>
+                        <option value="El Limoncito">El Limoncito</option>
+                        <option value="El Milagro">El Milagro</option>
+                        <option value="El Poblado">El Poblado</option>
+                        <option value="El Porvenir">El Porvenir</option>
+                        <option value="El Prado">El Prado</option>
+                        <option value="El Pueblo">El Pueblo</option>
+                        <option value="El Recreo">El Recreo</option>
+                        <option value="El Recreo">El Recreo</option>
+                        <option value="El Romance">El Romance</option>
+                        <option value="El Rosario">El Rosario</option>
+                        <option value="El Rubí">El Rubí</option>
+                        <option value="El Santuario">El Santuario</option>
+                        <option value="El Silencio">El Silencio</option>
+                        <option value="El Tabor">El Tabor</option>
+                        <option value="El Valle">El Valle</option>
+                        <option value="Evaristo Sourdis">Evaristo Sourdis</option>
+                        <option value="Granadillo">Granadillo</option>
+                        <option value="José Antonio Galán">José Antonio Galán</option>
+                        <option value="Kalamary">Kalamary</option>
+                        <option value="Kennedy">Kennedy</option>
+                        <option value="La Alboraya">La Alboraya</option>
+                        <option value="La Bendición de Dios">La Bendición de Dios</option>
+                        <option value="La Campiña">La Campiña</option>
+                        <option value="La Castellana">La Castellana</option>
+                        <option value="La Ceiba">La Ceiba</option>
+                        <option value="La Chinita">La Chinita</option>
+                        <option value="La Concepción">La Concepción</option>
+                        <option value="La Cumbre">La Cumbre</option>
+                        <option value="La Esmeralda">La Esmeralda</option>
+                        <option value="La Felicidad">La Felicidad</option>
+                        <option value="La Floresta">La Floresta</option>
+                        <option value="La Florida">La Florida</option>
+                        <option value="La Gloria">La Gloria</option>
+                        <option value="La Libertad">La Libertad</option>
+                        <option value="La Loma">La Loma</option>
+                        <option value="La Luz">La Luz</option>
+                        <option value="La Magdalena">La Magdalena</option>
+                        <option value="La Manga">La Manga</option>
+                        <option value="La Paz">La Paz</option>
+                        <option value="La Pradera">La Pradera</option>
+                        <option value="La Sierra">La Sierra</option>
+                        <option value="La Sierra">La Sierra</option>
+                        <option value="La Sierrita">La Sierrita</option>
+                        <option value="La Unión">La Unión</option>
+                        <option value="La Victoria">La Victoria</option>
+                        <option value="Las Américas">Las Américas</option>
+                        <option value="Las Cayenas">Las Cayenas</option>
+                        <option value="Las Colinas">Las Colinas</option>
+                        <option value="Las Delicias">Las Delicias</option>
+                        <option value="Las Dunas">Las Dunas</option>
+                        <option value="Las Estrellas">Las Estrellas</option>
+                        <option value="Las Flores">Las Flores</option>
+                        <option value="Las Gardenias">Las Gardenias</option>
+                        <option value="Las Granjas">Las Granjas</option>
+                        <option value="Las Malvinas">Las Malvinas</option>
+                        <option value="Las Mercedes Sur">Las Mercedes Sur</option>
+                        <option value="Las Mercedes">Las Mercedes</option>
+                        <option value="Las Nieves">Las Nieves</option>
+                        <option value="Las Palmas">Las Palmas</option>
+                        <option value="Las Palmeras">Las Palmeras</option>
+                        <option value="Las Terrazas">Las Terrazas</option>
+                        <option value="Las Tres Avemarías">Las Tres Avemarías</option>
+                        <option value="Lipaya">Lipaya</option>
+                        <option value="Loma Fresca">Loma Fresca</option>
+                        <option value="Los Alpes">Los Alpes</option>
+                        <option value="Los Andes">Los Andes</option>
+                        <option value="Los Continentes">Los Continentes</option>
+                        <option value="Los Girasoles">Los Girasoles</option>
+                        <option value="Los Jobos">Los Jobos</option>
+                        <option value="Los Laureles">Los Laureles</option>
+                        <option value="Los Nogales">Los Nogales</option>
+                        <option value="Los Olivos I">Los Olivos I</option>
+                        <option value="Los Olivos II">Los Olivos II</option>
+                        <option value="Los Pinos">Los Pinos</option>
+                        <option value="Los Rosales">Los Rosales</option>
+                        <option value="Los Trupillos">Los Trupillos</option>
+                        <option value="Lucero">Lucero</option>
+                        <option value="Mequejo">Mequejo</option>
+                        <option value="Miramar">Miramar</option>
+                        <option value="Modelo">Modelo</option>
+                        <option value="Moderno">Moderno</option>
+                        <option value="Montecristo">Montecristo</option>
+                        <option value="Montes">Montes</option>
+                        <option value="Nuevo Horizonte">Nuevo Horizonte</option>
+                        <option value="Paraíso">Paraíso</option>
+                        <option value="Parque Rosado">Parque Rosado</option>
+                        <option value="Pasadena">Pasadena</option>
+                        <option value="Primero de Mayo">Primero de Mayo</option>
+                        <option value="Rebolo">Rebolo</option>
+                        <option value="Riomar">Riomar</option>
+                        <option value="Rios de agua viva">Rios de agua viva</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="San José">San José</option>
+                        <option value="San José">San José</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="San Nicolás">San Nicolás</option>
+                        <option value="San Roque">San Roque</option>
+                        <option value="San Salvador">San Salvador</option>
+                        <option value="San Vicente">San Vicente</option>
+                        <option value="Santa Ana">Santa Ana</option>
+                        <option value="Santa Helena">Santa Helena</option>
+                        <option value="Santa María">Santa María</option>
+                        <option value="Santa Mónica">Santa Mónica</option>
+                        <option value="Santo Domingo de Guzmán">Santo Domingo de Guzmán</option>
+                        <option value="Siape">Siape</option>
+                        <option value="Simón Bolívar">Simón Bolívar</option>
+                        <option value="Solaire">Solaire</option>
+                        <option value="Tayrona">Tayrona</option>
+                        <option value="Universal I y II">Universal I y II</option>
+                        <option value="Urbanización Eduardo santos la playa">Urbanización Eduardo santos la playa</option>
+                        <option value="Villa Blanca">Villa Blanca</option>
+                        <option value="Villa Campestre">Villa Campestre</option>
+                        <option value="Villa Carolina">Villa Carolina</option>
+                        <option value="Villa Country">Villa Country</option>
+                        <option value="Villa del Carmen">Villa del Carmen</option>
+                        <option value="Villa del Este">Villa del Este</option>
+                        <option value="Villa San Carlos">Villa San Carlos</option>
+                        <option value="Villa San Pedro I">Villa San Pedro I</option>
+                        <option value="Villa San Pedro II">Villa San Pedro II</option>
+                        <option value="Villa Santos">Villa Santos</option>
+                        <option value="Villa Sevilla">Villa Sevilla</option>
+                        <option value="Villa Tarel">Villa Tarel</option>
+                        <option value="Villamar">Villamar</option>
+                        <option value="Villanueva">Villanueva</option>
+                        <option value="Villas del Puerto">Villas del Puerto</option>
+                        <option value="Zona Franca">Zona Franca</option>
+                        <option value="Zona Industrial">Zona Industrial</option>
+                  </select><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Dirección de la acumulación</label>
+                    <input type="text" class="form-control" name="direccion_rep" aria-describedby="Dire" placeholder=""><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de acumulación</label>
+                    <select class="form-select" name="id_basura" >
+                        <option value="1">Basura</option>
+                        <option value="2">Escombros</option>
+                        <option value="3">Ramas y hojas</option>
+                        <option value="4">Residuos Organicos</option>
+                        <option value="5">Vidrios y botellas</option>   
+                  </select><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descripcion del reporte(opcional)</label>
+                    <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+                  </div>
+                    <button type="submit" class="btn btn-outline-primary">Enviar reporte</button>
+              </form><br><br>
+        </div>
+        <div class="col-lg-3 d-md-none d-lg-block ">
+            
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-6 col-lg-3">
+            <br><br><center><h4>Contacto para asesoria</h4></center><br>
+            <center><div class="px-5">
+                    <img src="{{ url_for('static', filename='img/janer cantillo.jpeg') }}" width="98px" height="98px"  class="rounded-circle">
+                        <p>Janer Cantillo<br>
+                        +57 3205768830<br>
+                        janerdcantillo@itsa.edu.co</p>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/jesus fragoso.png') }}" width="98px" height="98px" class="rounded-circle">
+                        <p>Jesus Fragoso<br>
+                        +57 3122056969<br>
+                        jfragoso@itsa.edu.co</p>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/mario nuñez.png') }}" width="98px" height="98px" class="rounded-circle">
+        
+                        <p>Mario Nuñez<br>
+                        +57 3046449007<br>
+                        mandresnunez@itsa.edu.co</p>
+                    <br></center>
+        </div>
+        </div>
+        </div>
+      </div>
+     {% endblock %}

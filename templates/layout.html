@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='datables/datatables.min.css')}}">
+    <link rel="stylesheet"  type="text/css" href="{{ url_for('static',filename='datables/DataTables-1.10.25/css/dataTables.bootstrap5.min.css')}}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand bi-house-door-fill" href="/"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{ url_for('pqr') }}">¿Que es un PQR?</a>
+              </li>
+              {% if (session['id_rol']=='1') or (session['id_rol']=='2') %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('p_reportes') }}">Generar Reporte</a>
+              </li>
+              {% endif %}
+            </ul>
+
+            <form class="d-flex ">
+              {% if (session['id_rol']=='1' or session['id_rol']=='2')  %}
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-light me-auto bi-person-circle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ session['nombre'] }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item text-dark bi-eye" href="{{ url_for('ver_pe') }}"> Ver Perfil</a></li>
+                  <li><a class="dropdown-item text-dark bi-clock-history" href="{{ url_for('h_ry') }}"> Ver Historial</a></li>
+                  {% if (session['id_rol']=='2') %}
+                    <li><a class="dropdown-item text-dark bi-gear" href="{{ url_for('rep_t') }}"> Gestionar reportes</a></li>
+                  {%endif%}
+                  <li><a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a></li>
+                </ul>
+              </li>
+              {% else  %}
+              <a class="nav-link text-light me-auto mb-2 mb-lg-2 " href="{{ url_for('p_login') }}">Iniciar sesión</a>
+              <a class="nav-link text-light me-auto mb-2 mb-lg-2" href="{{ url_for('p_register') }}">Registrarse</a>
+              {% endif%}
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      
+    <br>
+    <div class="container">
+
+
+        {% block body%}
+        
+        {% endblock %}
+    
+    </div>
+
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Conéctate con nosotros en las redes sociales:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div >
+        <a href="https://www.facebook.com/itsaedubq" class="me-4 text-reset" style="text-decoration: none;">
+          <i class="bi-facebook"></i>
+        </a>
+        <a href="https://twitter.com/ITSAEDU" class="me-4 text-reset"  style="text-decoration: none;">
+          <i class="bi-twitter"></i>
+        </a>
+        <a href="https://google.com" class="me-4 text-reset"  style="text-decoration: none;">
+          <i class="bi-google"></i>
+        </a>
+        <a href="https://www.instagram.com/itsaedu/?hl=es" class="me-4 text-reset"  style="text-decoration: none;">
+          <i class="bi-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/institucion-universitaria-itsa/" class="me-4 text-reset"  style="text-decoration: none;">
+          <i class="bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/" class="me-4 text-reset"  style="text-decoration: none;">
+          <i class="bi-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="bi-exclamation-circle me-3"></i>Mas información sobre el aplicativo:
+            </h6>
+            <p>
+              Este proyecto tiene la misión de desarrollar una manera efectiva que ayude a contribuir al mejoramiento con respecto a la aglomeración de las basuras construyendo, estructurando y programando un aplicativo.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Legales
+            </h6>
+            <p>
+              <a href="{{ url_for('p_tratamiento') }}" class="text-reset"  style="text-decoration: none;">Tratamiento de datos</a>
+            </p>
+            <p>
+              <a href="{{ url_for('p_transparencia') }}" class="text-reset"  style="text-decoration: none;">Ley de transparencia e información publica</a>
+            </p>
+            
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Enlaces
+            </h6>
+            <p>
+              <a href="{{ url_for('pqr') }}" class="text-reset"  style="text-decoration: none;">¿Que es un PQR?</a>
+            </p>
+            <p>
+              <a href="{{ url_for('p_reportes') }}" class="text-reset"  style="text-decoration: none;">Generar Reporte</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contacto
+            </h6>
+            <p><i class="bi-map me-3"></i>  Carrera 58 No. 67 - 09, Barranquilla, Atlántico, CO</p>
+            <p>
+              <i class="bi-envelope me-3"></i>
+              contacto@dark-inc.com.co
+            </p>
+            <p><i class="bi-phone me-3"></i> + 57 (5) 3614116</p>
+            <p><i class="bi-file-break me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset" href="https://mdbootstrap.com/">Dark Inc. All Rights Reserved</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/datatables.min.js')}}"></script>    
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/Buttons-1.7.1/js/dataTables.buttons.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/JSZip-2.5.0/jszip.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/pdfmake-0.1.36/pdfmake.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/pdfmake-0.1.36/vfs_fonts.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='datables/Buttons-1.7.1/js/buttons.html5.min.js')}}"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+    
+</body>
+</html>

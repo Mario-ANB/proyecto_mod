@@ -1,0 +1,76 @@
+{% extends 'layout.html'%}
+{% block title %}PQR{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-6 col-lg-5">
+        <br><br><center><h4>Formulario PQRS</h4></center><br>
+        <form class="form-horizontal" action="/frormulariopqr" id ="formulario" name = "formulario" method = "POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre completo*</label>
+              <input type="text" class="form-control" id="nombreco2" aria-describedby="name" placeholder=""><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Numero de identificacion*</label>
+                <input type="text" class="form-control" id="ID2" aria-describedby="ID" placeholder=""><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Dirección</label>
+                <input type="text" class="form-control" id="Dir2" aria-describedby="Dire" placeholder=""><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Correo electronico*</label>
+                <input type="email" class="form-control" id="corr" aria-describedby="Correo" placeholder=""><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripcion del Problema*</label>
+                <textarea class="form-control" id="text" rows="3"></textarea>
+                *Campo obligatorios<br>
+              </div>
+              <label for="exampleFormControlTextarea1">¿Donde desea que le llegue la notificación con respuesta?</label><br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="notif1" value="option5" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Enviar notificacion al correo
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="notif2" value="option6">
+                <label class="form-check-label" for="exampleRadios2">
+                  Realizar Llamada al telefono celular
+                </label>
+              </div><br>
+              <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+              <label class="custom-control-label" for="customControlAutosizing"> Acepto el manejo de mis datos por parte de la pagina web.</label><br>
+              <br><input class="btn btn-primary" type="submit" name="Enviar" value="Enviar PQRS">
+          </form><br><br>
+    </div>
+    <div class="d-none d-sm-none d-md-block col-lg-3"></div><!-- Separación-->
+    <!-- Inicio -  Barra de contactos-->
+    <div class="col-12 col-sm-12 col-lg-3">
+        <div class="row row-cols-3 row-cols-sm-3 row-cols-lg-1 rounded-3">
+            <div class="col">
+                <h5 class="text-center">Contacto para asesoria</h5><br>
+                <img class="rounded-circle img-fluid w-50 mx-auto d-block mt-2" src="{{ url_for('static', filename='img/janer cantillo.jpeg') }}"></img>
+                <p class="text-center">Janer Cantillo<br>
+                    +57 3205768830<br>
+                    janerdcantillo@itsa.edu.co</p>
+            </div>
+            <div class="col">
+                <img class="rounded-circle img-fluid w-50 mx-auto d-block mt-2" src="{{ url_for('static', filename='img/jesus fragoso.png') }}"></img>
+                <p class="text-center">Jesus Fragoso<br>
+                    +57 3122056969<br>
+                    jfragoso@itsa.edu.co</p>
+            </div>
+            <div class="col">
+                <img class="rounded-circle img-fluid w-50 mx-auto d-block mt-2" src="{{ url_for('static', filename='img/mario nuñez.png') }}"></img>
+                <p class="text-center">Mario Nuñez<br>
+                    +57 3046449007<br>
+                    mandresnunez@itsa.edu.co</p>
+            </div>
+        </div>
+              <!-- Fin -  Barra de contactos-->
+    </div>
+</div>
+
+{% endblock%}

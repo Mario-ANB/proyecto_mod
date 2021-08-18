@@ -1,0 +1,131 @@
+{% extends 'layout.html'%}
+{% block title %}Gestionar reportes{% endblock %}
+
+{% block body %}
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <a type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" href="{{url_for('rep_t')}}"></a>
+</div>
+
+{% endif %}
+<div class="row">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-1 col-lg-3">
+      <div class="mt-3">
+        <div class="container-fluid bg-light">
+          <div class="row flex-nowrap">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-lg-start " id="menu">
+                    <li class="nav-item">
+                        <a href="" class="nav-link align-middle px-0">
+                            <i class="fs-4"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Mostrar Reportes</span>
+                        </a>
+                    <li class="nav-item">
+                        <a href="{{ url_for('rep_p') }}" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-flag"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Reportes pendientes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ url_for('rep_ep') }}" class="nav-link align-middle px-0">
+                          <i class="fs-4 bi-clock-history"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Reportes en proceso</span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url_for('rep_re') }}" class="nav-link align-middle px-0">
+                        <i class="fs-4 bi-check-circle"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Reportes recolectados</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ url_for('rep_ca') }}" class="nav-link align-middle px-0">
+                      <i class="fs-4 bi-x-circle"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Reportes cancelados</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('rep_t') }}" class="nav-link align-middle px-0">
+                    <i class="fs-4 bi-card-checklist"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Todos los reportes</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('pt_lla') }}" class="nav-link align-middle px-0">
+                    <i class="fs-4 bi bi-truck"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Crear patrulla</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('p_buscar') }}" class="nav-link align-middle px-0">
+                    <i class="fs-4 bi bi-search"></i> <span class="ms-1 d-inline d-md-none d-lg-inline text-dark btn btn-light">Busqueda avanzada</span>
+                </a>
+              </li>
+                </ul>
+          </div>
+        </div> 
+      </div>
+      <br><br>
+    </div>
+  <div class="col-12 col-xs-12 col-sm-12 col-md-11 col-lg-9">
+    <br>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Más información
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            {%if estados%}
+            {%  for estado in estados%}
+            <b class="fw-normal">Reportes en estado {{estado.0}}: {{estado.1}}</b><br>
+            {% endfor %}
+        
+            {% else %}
+            <p>Sin reportes encontrados</p>
+            {% endif %}
+          </div>
+        </div>
+      </div> <br>
+      {%if total%}
+      <b class="fw-normal">Reportes encontrados: {{total.0}}</b>
+      {%endif%}
+    <table class="table table-hover" id="example">
+        <thead class="table-light">
+            <tr>
+                <td>
+                    Código
+                </td>
+                <td>
+                    Fecha
+                </td>
+                <td>
+                    Dirección
+                </td>
+                <td>
+                  Barrio
+                </td>
+                <td>
+                    Estado
+                </td>
+                <td>
+                    Ver
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reporte %}
+              <tr>
+                <td>{{report.0}}</td>
+                <td>{{report.5}}</td>
+                <td>{{report.4}}</td>
+                <td>{{report.3}}</td>
+                <td>{{report.7}}</td>
+                <td> <a href="/verdetalles/{{report.0}}" class="btn btn-secondary">Detalles</a></td>
+              </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+  </div>
+
+</div><br><br>
+</div>
+
+{% endblock %}

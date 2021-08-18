@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+{% block title %}Editar perfil{% endblock %}
+{% block body %}
+      <center>
+        <br>
+        <h1 class="text-center">Editar Perfil</h1><br>
+        <h6 class="text-center">DATOS PERSONALES</h6><br>
+    </center>  
+      <form class="form-horizontal" action="/actualizar/{{session['id']}}" id ="formulario" name = "formulario" method = "POST">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
+        <div class="col">
+            <label for="">Nombre completo</label><br>
+            <input class="form-control" type="text" name="nombre" value="{{ session['nombre'] }}" size="25" placeholder=""><br>
+            <label for="">Telefono</label><br>
+            <input class="form-control" type="text" name="telefono" value="{{ session['telefono'] }}" ><br>
+        </div>
+        <div class="col">
+            <label for="">Fecha de nacimiento (AAAA/MM/DD)</label><br>
+            <input class="form-control" type="date" name="fecha_nac" value="{{session['fecha_nac'] }}" size="25"><br>
+            <label for="">País de origen</label><br>
+            <input class="form-control" type="text" name="pais" value="{{ session['pais'] }}" placeholder=""><br>
+            
+        </div>
+        <div class="col">
+            <label for="">Correo Electronico</label><br>
+            <input class="form-control" type="email" name="email" size="25" value="{{ session['email'] }}" placeholder="example@example.com"><br>
+            <label for="">Ciudad</label><br>
+            <input class="form-control" type="text" name="ciudad" value="{{ session['ciudad'] }}" placeholder=""><br>
+        </div>
+     </div>
+        <center><input class="btn btn-primary" type="submit" name="modificar" value="Modificar datos">
+            <a href="/link_verperfil" class="btn btn-primary">Cancelar</script></a></center>
+        </center>
+      </form>
+      <br><br>
+{% endblock %}<!--Vete al navegador a ver-->

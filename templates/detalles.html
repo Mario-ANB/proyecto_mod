@@ -1,0 +1,116 @@
+{% extends 'layout.html'%}
+{% block title %}Detalles del reporte{% endblock %}
+{% block body %}
+
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<center> <br><br><center><h4>Detalles de reporte</h4></center><br></center><br>
+<form class="mt-1" action="/guardar_detalles/{{detalles.11}}" method="POST">
+    <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" aria-describedby="name" value="{{ detalles.0 }}" disabled><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Numero de identificacion</label>
+                        <input type="text" class="form-control" name="documento" aria-describedby="ID" value="{{ detalles.1 }}" disabled><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Telefono</label>
+                        <input type="text" class="form-control" name="telefono" aria-describedby="telefono" value="{{ detalles.2 }}" disabled><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo electronico</label>
+                        <input type="email" class="form-control" name="email" aria-describedby="Correo" value="{{ detalles.3 }}" disabled><br>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripcion del reporte</label>
+                        <textarea class="form-control" name="descripcion" rows="5" disabled>{{ detalles.8 }}</textarea><br>
+                    </div>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Dirección del reporte</label>
+                    <input type="text" class="form-control" name="direccion_rep" value="{{ detalles.6 }}" disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de acumulación</label>
+                    <input type="text" class="form-control" name="tipo_basura" aria-describedby="Dire" value="{{ detalles.7 }}" disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Poliza</label>
+                    <input type="text" class="form-control" name="poliza" aria-describedby="Poliza" value="{{ detalles.4 }}"disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Barrio</label>
+                    <input type="text" class="form-control" name="barrio" value="{{ detalles.5 }}" disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Asignar Patrulla</label>
+                    <select class="form-select" name="id_patrulla" >
+                        {% if detalles.9 == 1%}
+                        <option value="1" selected>Sin asignar</option>
+                        {% else %}
+                        <option value="1">Sin asignar</option>
+                        {% endif %}
+
+                        {% for patrulla in patrullas%}
+                        {% if detalles.9 == patrulla.0%}
+                        <option value="{{patrulla.0}}"selected>{{patrulla.1}}</option>
+                        {% else %}
+                        <option value="{{patrulla.0}}">{{patrulla.1}}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                </select><br>
+                </div>
+                <div class="form-group">
+                    <label for="">Estado</label>
+                    <select class="form-select" name="estado" >
+                        {% if detalles.10 == 'Pendiente' %} <!--comprobar el estado actual es "Pendiente"-->
+                        <option value="Pendiente" selected>Pendiente</option>
+                        {%else%}
+                        <option value="Pendiente" >Pendiente</option>
+                        {%endif%}
+
+                        {% if detalles.10 == 'En proceso' %} <!--comprobar el estado actual es "En proceso"-->
+                        <option value="En proceso" selected>En proceso</option>
+                        {%else%}
+                        <option value="En proceso" >En proceso</option>
+                        {%endif%}
+
+                        {% if detalles.10 == 'Recolectado' %} <!--comprobar el estado actual es "Recolectado"-->
+                        <option value="Recolectado" selected>Recolectado</option>
+                        {%else%}
+                        <option value="Recolectado" >Recolectado</option>
+                        {%endif%}
+
+                        {% if detalles.10 == 'Cancelado' %} <!--comprobar el estado actual es "Cancelado"-->
+                        <option value="Cancelado" selected>Cancelado</option>
+                        {%else%}
+                        <option value="Cancelado" >Cancelado</option>
+                        {%endif%}
+                </select><br>
+                </div>
+            </div>
+            <center>
+                <button type="submit" class="btn btn-outline-primary">Actualizar reporte</button>
+                <a type="submit" href="{{ url_for('rep_t') }}" class="btn btn-outline-primary">Cancelar</a>
+            </center>
+            
+        </form>
+        <br><br><br>
+
+    </div>
+
+     {% endblock %}

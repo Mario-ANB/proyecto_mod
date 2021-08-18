@@ -1,0 +1,195 @@
+{% extends 'layout.html'%}
+{% block title %}Formulario de registro{% endblock %}
+{% block body %}
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+      <center>
+        <br>
+        <h1 class="text-center">FORMULARIO DE REGISTRO</h1><br><br>
+        <h6 class="text-center">DATOS PERSONALES</h6>
+    </center>
+      <form action="/register" class="form-horizontal" id ="formulario" name = "formulario" method = "POST">
+
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3">
+
+          <div class="col">
+            <label for="">Nombre y apellido</label><br>
+            <input class="form-control" type="text" name="nombre" size="25" placeholder="" required
+            oninput="this.value = this.value.replace(/[^a-zA-Z @]+/, '').replace(/(\..*?)\..*/g, '$1');" value="{{datos.0}}" ><br>
+
+            <label for="">Documento de identidad</label><br>
+            <input class="form-control" type="text" size="25"name="documento" placeholder="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" value="{{datos.1}}" required><br>
+
+            <label for="">Telefono</label><br>
+            <input class="form-control" type="text" name="telefono" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" value="{{datos.2}}" required><br>
+          </div>
+
+          <div class="col">
+            <label for="">Fecha de nacimiento</label><br>
+            <input class="form-control" type="date" name="fecha_nac" size="25" placeholder="DD/MM/AAAA" value="{{datos.3}}" required><br>
+            <label for="">Lugar de expedición</label><br>
+            <input class="form-control" type="text" name="ciudad" placeholder="" required
+            oninput="this.value = this.value.replace(/[^a-zA-Z @]+/, '').replace(/(\..*?)\..*/g, '$1');" value="{{datos.4}}"><br>
+            <label for="">País de origen</label><br>
+            <select class="form-select" name="pais" ><br>
+              <option value="" disabled>Selecionar</option>
+              <option value="Colombia" >Colombia</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Chile">Chile</option>
+              <option value="Peru">Peru</option>
+              <option value="Nicaragua">Nicaragua</option>
+            </select><br>
+            
+          </div>
+
+          <div class="col">
+            <label for="">Correo Electronico</label><br>
+            <input class="form-control" type="email" name="email" size="25" placeholder=" example@example.com"  required
+            oninput="this.value = this.value.replace(/[^a-zA-Z0-9.@]+/, '').replace(/(\..*?)\..*/g, '$1');" value="{{datos.5}}"><br>
+            <label for="">Contraseña</label>
+            <input class="form-control" type="password" name="password" required><br>
+            <label for="">Confirmar contraseña</label>
+            <input class="form-control" name="conf_password" type="password" required>
+          </div>
+        </div>
+
+</div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <h4 class="text-center">TERMINOS Y CONDICIONES</h4>
+            <center><input type="checkbox" name="SAR" value="UR" required > Al registrarse, acepta los terminos y condiciones y
+              <label type="button" class="text-decoration-underline" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                la politica de tratamiento de datos
+              </laber></center>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Ley de tratamiento de Datos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <h2>
+                          EL CONGRESO DE COLOMBIA <br>
+                          DECRETA: <br>
+                          TÍTULO I <br>
+                          OBJETO, ÁMBITO DE APLICACIÓN Y DEFINICIONES <br>
+                        </h2></div>
+                        <p> <b class="fw_bold">Articulo 1º. Objeto. </b>La presente ley tiene por objeto desarrollar el derecho constitucional que tienen todas las personas a conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en bases de datos o archivos, y los demás derechos, libertades y garantías constitucionales a que se refiere el artículo 15 de la Constitución Política; así como el derecho a la información consagrado en el artículo 20 de la misma.</p> <br><br>
+                    
+                        <p> <b class="fw_bold">Artículo  2°. Ámbito de aplicación.</b> Los principios y disposiciones contenidas en la presente ley serán aplicables a los datos personales registrados en cualquier base de datos que los haga susceptibles de tratamiento por entidades de naturaleza pública o privada. <br><br>
+                    
+                          La presente ley aplicará al tratamiento de datos personales efectuado en territorio colombiano o cuando al Responsable del Tratamiento o Encargado del Tratamiento no establecido en territorio nacional le sea aplicable la legislación colombiana en virtud de normas y tratados internacionales. <br><br>
+                          
+                          El régimen de protección de datos personales que se establece en la presente ley no será de aplicación: <br><br>
+                          
+                           a) A las bases de datos o archivos mantenidos en un ámbito exclusivamente personal o doméstico. <br><br>
+                          
+                          Cuando estas bases de datos o archivos vayan a ser suministrados a terceros se deberá, de manera previa, informar al Titular y solicitar su autorización. En este caso los Responsables y Encargados de las bases de datos y archivos quedarán sujetos a las disposiciones contenidas en la presente ley; <br><br>
+                          
+                          b) A las bases de datos y archivos que tengan por finalidad la seguridad y defensa nacional, así como la prevención, detección, monitoreo y control del lavado de activos y el financiamiento del terrorismo; <br><br>
+                          
+                          c) A las Bases de datos que tengan como fin y contengan información de inteligencia y contrainteligencia; <br><br>
+                          
+                          d) A las bases de datos y archivos de información periodística y otros contenidos editoriales; <br><br>
+                          
+                          e) A las bases de datos y archivos regulados por la Ley 1266 de 2008; <br><br>
+                          
+                          f) A las bases de datos y archivos regulados por la Ley 79 de 1993.</p> <br><br>
+                    
+                          <p> <b class="fw_bold">Parágrafo </b>Los principios sobre protección de datos serán aplicables a todas las bases de datos, incluidas las exceptuadas en el presente artículo, con los límites dispuestos en la presente ley y sin reñir con los datos que tienen características de estar amparados por la reserva legal. En el evento que la normatividad especial que regule las bases de datos exceptuadas prevea principios que tengan en consideración la naturaleza especial de datos, los mismos aplicarán de manera concurrente a los previstos en la presente ley.</p> <br>
+                          
+                          <p> <b class="fw_bold">Articulo 3º. Definiciones. </b>Para los efectos de la presente ley, se entiende por:</p>
+                    
+                          <p>a) <b class="fw-bold">autorización: </b>
+                            Consentimiento previo, expreso e informado del Titular para llevar a cabo el Tratamiento de datos personales;
+                          </p>
+                    
+                          <p>b) <b class="fw-bold">Base de datos: </b>
+                            Consentimiento previo, expreso e informado del Titular para llevar a cabo el Tratamiento de datos personales;
+                          </p>
+                    
+                          <p>c)<b class="fw-bold">Dato personal: </b>
+                            Cualquier información vinculada o que pueda asociarse a una o varias personas naturales determinadas o determinables;
+                          </p>
+                          
+                          <p>d)<b class="fw-bold">Encargado del tratamiento: </b>
+                            Persona natural o jurídica, pública o privada, que por sí misma o en asocio con otros, realice el Tratamiento de datos personales por cuenta del Responsable del Tratamiento;
+                          </p>
+                    
+                          <p>e) <b class="fw-bold">Responsable del tratamiento: </b>
+                            Persona natural o jurídica, pública o privada, que por sí misma o en asocio con otros, decida sobre la base de datos y/o el Tratamiento de los datos;
+                          </p>
+                    
+                          <p>f) <b class="fw-bold">Titular: </b>
+                            Persona natural cuyos datos personales sean objeto de Tratamiento;
+                          </p>
+                            
+                          <p>g) <b class="fw-bold">Tratamiento:</b>
+                            Cualquier operación o conjunto de operaciones sobre datos personales, tales como la recolección, almacenamiento, uso, circulación o supresión.
+                          </p>
+                    
+                          <h3 class="text-center">TÍTULO II <br>
+                            PRINCIPIOS RECTORES <br>
+                            </h3> <br>
+                    
+                            <p><b class="fw-bold">Artículo  4°. Principios para el Tratamiento de datos personales.</b>
+                              En el desarrollo, interpretación y aplicación de la presente ley, se aplicarán, de manera armónica e integral, los siguientes principios:
+                            </p>
+                    
+                            <p>a)<b class="fw-bold">Principio de legalidad en materia de Tratamiento de datos: </b>
+                              El Tratamiento a que se refiere la presente ley es una actividad reglada que debe sujetarse a lo establecido en ella y en las demás disposiciones que la desarrollen;
+                            </p>
+                    
+                            <p>b) <b class="fw-bold">Principio de finalidad: </b>
+                              El Tratamiento debe obedecer a una finalidad legítima de acuerdo con la Constitución y la Ley, la cual debe ser informada al Titular;
+                            </p>
+                    
+                            <p>c) <b class="fw-bold">Principio de libertad: </b>
+                              El Tratamiento sólo puede ejercerse con el consentimiento, previo, expreso e informado del Titular. Los datos personales no podrán ser obtenidos o divulgados sin previa autorización, o en ausencia de mandato legal o judicial que releve el consentimiento;
+                            </p>
+                    
+                            <p>d) <b class="fw-bold">Principio de veracidad o calidad: </b>
+                              La información sujeta a Tratamiento debe ser veraz, completa, exacta, actualizada, comprobable y comprensible. Se prohíbe el Tratamiento de datos parciales, incompletos, fraccionados o que induzcan a error;
+                            </p>
+                    
+                            <p>e) <b class="fw-bold">Principio de transparencia: </b>
+                              En el Tratamiento debe garantizarse el derecho del Titular a obtener del Responsable del Tratamiento o del Encargado del Tratamiento, en cualquier momento y sin restricciones, información acerca de la existencia de datos que le conciernan;
+                            </p>
+                    
+                            <p>f) <b class="fw-bold">Principio de acceso y circulación restringida:</b>
+                              El Tratamiento se sujeta a los límites que se derivan de la naturaleza de los datos personales, de las disposiciones de la presente ley y la Constitución. En este sentido, el Tratamiento sólo podrá hacerse por personas autorizadas por el Titular y/o por las personas previstas en la presente ley;<br>
+                    
+                              Los datos personales, salvo la información pública, no podrán estar disponibles en Internet u otros medios de divulgación o comunicación masiva, salvo que el acceso sea técnicamente controlable para brindar un conocimiento restringido sólo a los Titulares o terceros autorizados conforme a la presente ley;
+                            </p>
+                    
+                            <p>g) <b class="fw-bold">Principio de seguridad: </b>
+                              La información sujeta a Tratamiento por el Responsable del Tratamiento o Encargado del Tratamiento a que se refiere la presente ley, se deberá manejar con las medidas técnicas, humanas y administrativas que sean necesarias para otorgar seguridad a los registros evitando su adulteración, pérdida, consulta, uso o acceso no autorizado o fraudulento;
+                            </p>
+                    
+                            <p>h) <b class="fw-bold">Principio de confidencialidad:</b>
+                              Todas las personas que intervengan en el Tratamiento de datos personales que no tengan la naturaleza de públicos están obligadas a garantizar la reserva de la información, inclusive después de finalizada su relación con alguna de las labores que comprende el Tratamiento, pudiendo sólo realizar suministro o comunicación de datos personales cuando ello corresponda al desarrollo de las actividades autorizadas en la presente ley y en los términos de la misma.
+                            </p>
+                                <p>Para leer la ley de tratamiento de datos completa, <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981">Click Aquí</a></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <br>
+            <center><input class="btn btn-primary" type="submit" name="registrate" value="Registrarse"></center>
+      </form>
+      <br><br>
+
+{% endblock %}
+    

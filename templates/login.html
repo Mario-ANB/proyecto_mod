@@ -1,0 +1,37 @@
+{% extends 'layout.html'%}
+{% block title %}Iniciar sesión{% endblock %}
+{% block body %}
+
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+        <center>
+          <br>
+          <h1 class="text-center">INICIAR SESION</h1><br><br>
+      </center>
+      <div class="row">
+          <div class="col-lg-4 col-md-3 col-sm-2 col-1">
+              
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-8 col-10">
+              <form class="form-horizontal" action="/login" method = "POST">
+                  <label for="">Correo electronico</label><br>
+                  <input class="form-control" type="email" name="email" size="25" placeholder=" example@example.com"><br>
+                  <label for="">Contraseña</label><br>
+                  <input class="form-control" name="password" type="password" ><br>
+                  <a class="btn text-primary" href="{{ url_for('olv_pass') }}" role="button">¿Olvidaste tu contraseña?</a><br><br>
+                  <input class="btn btn-primary form-control" type="submit" name="" value="iniciar sesión"> <br><br>
+                  
+
+              </form>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-2 col-1">
+              
+          </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'layout.html'%}
+{% block title %}¿Que es un PQR?{% endblock %}
+{% block body %}
+{% if msg %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ msg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <br><center><h4>PQR</h4></center><br>
+            <hr>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                        <div class="p-4"><h2>Quejas</h2></div>
+                        </td>
+                        <td>
+                            <div class="p-4">
+                            Comunicación verbal o escrita por medio de la cual el usuario manifiesta 
+                            su inconformidad con la pagina con la forma y condiciones en
+                            que se ha prestado el servicio, y que, por su naturaleza, generalmente, no
+                            implican manejo y gestion de los reportes.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table><hr><br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                        <div class="p-3"><h2>Solicitud</h2></div>
+                        </td>
+                        <td>
+                            <div class="p-4">
+                                Comunicación verbal o escrita de una petición formulada por el usuario en
+                                referencia a uno o varios servicios prestados por la pagina y que, por su
+                                naturaleza, puede implicar o no el manejo y gestion de los reportes.
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table><hr><br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                        <div class=""><h2>Reclamación</h2></div>
+                        </td>
+                        <td>
+                            <div class="p-3">
+                                Comunicación verbal o escrita por medio de la cual el usuario y/o
+                                consumidor manifiesta su inconformidad con la finalidad de que la pagina web
+                                revise los valores relacionados con los reportes.
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table><hr><br>
+            <center><button type="button" class="btn btn-outline-primary" onclick= "location='/link_formulario pqr'">Enviar Formulario PQR</button></center><!--botton-->
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="pt-5 mt-5 m-5 align-items-center">
+               <center><iframe width="470" height="350" src="https://www.youtube.com/embed/Z8m8AaYJR2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+             </div>
+        </div>
+        </div>
+        </div>
+      </div><br><br>
+{% endblock %}

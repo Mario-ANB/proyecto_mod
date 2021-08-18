@@ -1,0 +1,117 @@
+{% extends 'layout.html'%}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-11 col-md-10 col-lg-7">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <center>
+                  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='img/parque-santander.jpg')}}" class="d-block img-fluid" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <div class="fw-bold"><h5>Ayudanos a mantener nuestros parques limpios</h5>
+                          <p>Con el cuidado correcto de los parques, obtendremos un ambiente de recreación limpio.</p>
+                        </div></div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/zona_verde.jpg')}}" class="d-block img-fluid" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <div class="fw-bold"><h5>Se un agente de bien protegiendo nuestra naturaleza</h5>
+                          <p>"El hombre es, porque le teme a la represalias de la naturaleza."</p></div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/zona_verde2.jpg')}}" class="d-block img-fluid" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <div class="fw-bold"><h5>Cuidemos nuestra ciudad</h5>
+                          <p>Es un deber como ciudadanos, el poder vivir en un ambiente limpio y sano.</p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+               </center>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div><br>
+            <div class="container-fluid bg-light">
+                <h5>Mision</h5>
+                  <p>
+                    Por medio de este proyecto en los sectores implicados para evitar que el nombre
+                    de nuestro planeta tierra sea un recuerdo en las generaciones venideras si es que
+                    de seguir la actitud llevada por lo terrícolas en el descontrol de producción de
+                    basuras.
+                    La iniciativa de control de basura y reportes sobre las acumulaciones que existen en ciertos lugares, vincula a los habitantes 
+                    de la ciudad de Barranquilla otorgándoles una experiencia de que este atada a la función de la persona como ciudadanos de ciudad su entorno , 
+                    al igual que busca la participación de los miembros implicados. Esperamos que esta solución pueda cumplir su objetivo principal brindando una experiencia sea puesta en práctica, se conviertan en modelos o
+                    líderes que ayuden a mejorar la vida ambiental de los lugares donde se
+                    correlacionan.
+                  </p><hr>
+                <h5>Vision</h5>
+                  <p>
+                    En el año 2026, seremos la herramienta numero 1 para las personas con respecto a la 
+                    generación de reportes sobre la acumulación de residuos solidos en toda Colombia 
+                    y la región buscando un solidez para crear responsabilidad social y ambiental 
+                    atravez de la presentacion del servicio brindado por la paginas web con lo que concierne 
+                    a su objetivo principal.
+                  </p><hr>
+                <h5>Resumen</h5>
+                  <p>
+                    Este proyecto de investigación se centrará en buscar una solución sobre la acumulación de residuos y desechos en lugares públicos y otros tipos de lugres, además de analizar diversas propuestas que nos permita contribuir al mejoramiento de esta situación a través de herramientas tecnológicas e informática. 
+                    Después de realizar una revisión de la problemática de acumulación de residuos y basuras, presentamos una propuesta para aportar una estrategia que permita reducir esta acumulación de residuos, siendo esta el desarrollo de un aplicativo tecnológico que permita registrar reportes de 
+                    lugares en el que se presente acumulación de basura y residuos generados por parte de la ciudadanía; de tal manera que sean revisados por un personal encargado de gestionar y administrar dichos reportes, posteriormente enviarlos a la entidad de aseo público encargada. Para lo cual se realizará una revisión
+                    sobre conceptos relevantes para esta investigación como son: basura, residuo, reporte, espacio público, prototipo, interfaz gráfica, aplicativo y base de datos entre otros. Cada uno de los temas serán expuestos de manera detallada, pero relacionando la información de manera directa con el proyecto, 
+                    de esta forma obtener una visión clara de los puntos a tratar y alcanzar para los objetivos establecidos. 
+                  </p>
+              </div>
+            </div>
+            <div class="d-none d-sm-none d-md-block col-lg-2"></div>
+              <div class="col-xs-12 col-sm-10 col-md-6 col-lg-3">
+                <br><br><center><h4>Contacto para asesoria</h4></center><br>
+                <center><div class="px-5">
+                        <img src="{{ url_for('static', filename='img/janer cantillo.jpeg') }}" width="98px" height="98px"  class="rounded-circle">
+                            <p>Janer Cantillo<br>
+                            +57 3205768830<br>
+                            janerdcantillo@itsa.edu.co</p>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/jesus fragoso.png') }}" width="98px" height="98px" class="rounded-circle">
+                            <p>Jesus Fragoso<br>
+                            +57 3122056969<br>
+                            jfragoso@itsa.edu.co</p>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/mario nuñez.png') }}" width="98px" height="98px" class="rounded-circle">
+            
+                            <p>Mario Nuñez<br>
+                            +57 3046449007<br>
+                            mandresnunez@itsa.edu.co</p>
+                        <br></center>
+            </div>
+              <!-- Fin -  Barra de contactos-->
+          </div>
+          
+{% endblock%}
